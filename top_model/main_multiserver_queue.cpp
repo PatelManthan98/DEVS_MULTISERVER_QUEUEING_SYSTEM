@@ -1,6 +1,6 @@
 #include <cadmium/simulation/root_coordinator.hpp>
 #include <cadmium/simulation/logger/stdout.hpp>
-#include "multiserver_queueing_system.hpp"
+#include "../atomics/multiserver_queueing_system.hpp"
 #include <iostream>
 #include <memory>
 #include <limits>

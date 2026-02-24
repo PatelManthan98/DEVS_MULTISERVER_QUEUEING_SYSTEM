@@ -59,5 +59,6 @@ int main() {
     rc.start();
     rc.simulate(inter_arrival_time * max_customers + inter_arrival_time);
     rc.stop();
+
     return 0;
 }

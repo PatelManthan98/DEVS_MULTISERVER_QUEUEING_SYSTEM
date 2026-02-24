@@ -14,7 +14,7 @@
 #include <cadmium/modeling/devs/coupled.hpp>
 #include "../atomics/ArrivalGenerator.hpp"
 #include "../atomics/Queue.hpp"
-#include "parallel_server_pool.hpp"
+#include "../atomics/parallel_server_pool.hpp"
 
 namespace cadmium::example::queue {
 
