@@ -1,24 +1,3 @@
-// =============================================================================
-// test/main_server_test.cpp
-//
-// Unit test for Server atomic model.
-// Reads customer dispatch events from: ../input_data/server_input_test.txt
-//
-// Input file format (one event per line):
-//   time  customer_id
-//   50    7          <- dispatch customer 7 to server at t=50
-//   200   9          <- dispatch customer 9 to server at t=200
-//
-// Output logs: ../simulation_results/server_test_output_messages.txt
-//              ../simulation_results/server_test_output_state.txt
-//
-// Build: make server_test
-// Run:   ./bin/server_test
-//
-// To change inputs, edit: input_data/server_input_test.txt
-// To change server config, edit the CONFIG section below:
-// =============================================================================
-
 #include <cadmium/simulation/root_coordinator.hpp>
 #include <cadmium/simulation/logger/stdout.hpp>
 #include "../atomics/Server.hpp"

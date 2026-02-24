@@ -1,21 +1,3 @@
-// =============================================================================
-// test/main_queue_test.cpp
-//
-// Unit test for FifoDispatchQueue atomic model.
-// Generates its own customers internally using CustomerArrivalGenerator,
-// then feeds them directly into FifoDispatchQueue.
-//
-// Server-free signals read from:
-//   ../input_data/queue_server_free_input_test.txt
-//
-// Output saved to:
-//   ../simulation_results/queue_test_output_messages.txt
-//   ../simulation_results/queue_test_output_state.txt
-//
-// Build: make queue_test
-// Run:   ./bin/QUEUE_TEST
-// =============================================================================
-
 #include <cadmium/simulation/root_coordinator.hpp>
 #include <cadmium/simulation/logger/stdout.hpp>
 #include <cadmium/modeling/devs/coupled.hpp>

@@ -1,9 +1,6 @@
 #ifndef MULTISERVER_QUEUEING_SYSTEM_HPP
 #define MULTISERVER_QUEUEING_SYSTEM_HPP
 
-// =============================================================================
-// top_model/multiserver_queueing_system.hpp
-//
 // Level-1 Top Coupled Model: Multi-Server Queueing System
 //
 // Connects all submodels:

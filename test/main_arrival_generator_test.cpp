@@ -1,15 +1,3 @@
-// =============================================================================
-// test/main_arrival_generator_test.cpp
-//
-// Unit test for CustomerArrivalGenerator atomic model.
-// Generates customers at fixed intervals and saves output to:
-//   ../simulation_results/arrival_generator_test_output_messages.txt
-//   ../simulation_results/arrival_generator_test_output_state.txt
-//
-// Build: make arrival_generator_test
-// Run:   ./bin/ARRIVAL_GENERATOR_TEST
-// =============================================================================
-
 #include <cadmium/simulation/root_coordinator.hpp>
 #include <cadmium/simulation/logger/stdout.hpp>
 #include <cadmium/modeling/devs/coupled.hpp>

@@ -1,8 +1,5 @@
 #ifndef PARALLEL_SERVER_POOL_HPP
 #define PARALLEL_SERVER_POOL_HPP
-
-// =============================================================================
-// top_model/parallel_server_pool.hpp
 //
 // Level-2 Coupled Model: Parallel Server Pool
 //
@@ -36,7 +33,6 @@ public:
         auto server1 = addComponent<Server>("Server1", 1, serviceTime);
         auto server2 = addComponent<Server>("Server2", 2, serviceTime);
 
-        // Dedicated wires — no message sharing between servers
         addCoupling(in_dispatch_server1, server1->in_dispatch);
         addCoupling(in_dispatch_server2, server2->in_dispatch);
         addCoupling(server1->out_serverFree, out_server_free);
@@ -44,5 +40,5 @@ public:
     }
 };
 
-} // namespace cadmium::example::queue
-#endif // PARALLEL_SERVER_POOL_HPP
+} 
+#endif 

@@ -49,7 +49,6 @@ public:
         s.sigma -= e;
     }
 
-    // FIXED: confluentTransition (not confluenceTransition)
     void confluentTransition(ArrivalGeneratorState& s, double e) const override {
         internalTransition(s);
     }
@@ -63,5 +62,5 @@ public:
     }
 };
 
-} // namespace cadmium::example::queue
+} 
 #endif

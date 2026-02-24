@@ -51,12 +51,12 @@ public:
     void internalTransition(QueueState& s) const override {
         s.dispatchPending = false;
         s.nextCustomer    = -1;
-        // Try next dispatch immediately if possible
+        
         if (!s.waiting.empty() && !s.freeServerIds.empty()) {
             s.nextCustomer    = s.waiting.front();
             s.waiting.pop_front();
             s.dispatchPending = true;
-            // targetServer stays set from previous output() call
+
         }
     }
 
@@ -86,7 +86,7 @@ public:
         if (s.dispatchPending && !s.freeServerIds.empty()) {
             // Pick the first available server
             int srv = s.freeServerIds.front();
-            // Remove it from free list (const hack via cast)
+            // Remove it from free list 
             const_cast<QueueState&>(s).freeServerIds.erase(
                 const_cast<QueueState&>(s).freeServerIds.begin());
 
@@ -104,5 +104,5 @@ public:
     }
 };
 
-} // namespace cadmium::example::queue
+}
 #endif
