@@ -35,7 +35,7 @@
 using namespace cadmium::example::queue;
 using namespace cadmium;
 
-const int    server_id    = 1;      // which server to test (1 or 2)
+const int    server_id    = 2;      // which server to test (1 or 2)
 const double service_time = 120.0;  // seconds to serve one customer
 // ═══════════════════════════════════════════════════════
 
@@ -57,7 +57,6 @@ std::vector<std::pair<double,int>> read_input_file(const std::string& filepath) 
     return events;
 }
 
-// ── File-driven dispatch injector ────────────────────────────────────────────
 struct FileInputState {
     std::vector<std::pair<double,int>> events;
     int index; double sigma;
