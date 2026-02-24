@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/manthan/multiqueue_project/build",
+  "command": "/usr/bin/c++  -I/home/manthan/cadmium_v2/include -g -std=gnu++17 -o CMakeFiles/queueing_sim.dir/main.cpp.o -c /home/manthan/multiqueue_project/main.cpp",
+  "file": "/home/manthan/multiqueue_project/main.cpp",
+  "output": "CMakeFiles/queueing_sim.dir/main.cpp.o"
+}
+]

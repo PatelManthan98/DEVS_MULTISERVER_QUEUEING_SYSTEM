@@ -1,0 +1,4 @@
+/home/manthan/multiqueue_project/build/CMakeFiles/queueing_sim.dir
+/home/manthan/multiqueue_project/build/CMakeFiles/run_all.dir
+/home/manthan/multiqueue_project/build/CMakeFiles/edit_cache.dir
+/home/manthan/multiqueue_project/build/CMakeFiles/rebuild_cache.dir

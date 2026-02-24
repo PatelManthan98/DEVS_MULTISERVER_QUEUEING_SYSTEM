@@ -1,0 +1,4 @@
+# ArrivalGenerator input test
+# This model is autonomous (no input ports) — inputs come from internal timer
+# IAT and maxCustomers are set in the test executable
+# This file is kept for structural consistency with the project format

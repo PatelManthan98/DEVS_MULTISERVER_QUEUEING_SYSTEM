@@ -1,0 +1,85 @@
+sep=;
+time;model_id;model_name;port_name;data
+0;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}
+0;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}
+0;4;Queue;;{queue_len:0 dispatch:0 free_servers:0}
+0;5;ArrivalGenerator;;{customers_sent:0 sigma:900 active:1}
+900;4;Queue;;{queue_len:1 dispatch:0 free_servers:0}
+900;5;ArrivalGenerator;out_customer;0
+900;5;ArrivalGenerator;;{customers_sent:1 sigma:900 active:1}
+1800;4;Queue;;{queue_len:2 dispatch:0 free_servers:0}
+1800;5;ArrivalGenerator;out_customer;1
+1800;5;ArrivalGenerator;;{customers_sent:2 sigma:900 active:1}
+2700;4;Queue;;{queue_len:3 dispatch:0 free_servers:0}
+2700;5;ArrivalGenerator;out_customer;2
+2700;5;ArrivalGenerator;;{customers_sent:3 sigma:900 active:1}
+3600;4;Queue;;{queue_len:4 dispatch:0 free_servers:0}
+3600;5;ArrivalGenerator;out_customer;3
+3600;5;ArrivalGenerator;;{customers_sent:4 sigma:900 active:1}
+4500;4;Queue;;{queue_len:5 dispatch:0 free_servers:0}
+4500;5;ArrivalGenerator;out_customer;4
+4500;5;ArrivalGenerator;;{customers_sent:5 sigma:900 active:1}
+5400;4;Queue;;{queue_len:6 dispatch:0 free_servers:0}
+5400;5;ArrivalGenerator;out_customer;5
+5400;5;ArrivalGenerator;;{customers_sent:6 sigma:900 active:1}
+6300;4;Queue;;{queue_len:7 dispatch:0 free_servers:0}
+6300;5;ArrivalGenerator;out_customer;6
+6300;5;ArrivalGenerator;;{customers_sent:7 sigma:900 active:1}
+7200;4;Queue;;{queue_len:8 dispatch:0 free_servers:0}
+7200;5;ArrivalGenerator;out_customer;7
+7200;5;ArrivalGenerator;;{customers_sent:8 sigma:900 active:1}
+8100;4;Queue;;{queue_len:9 dispatch:0 free_servers:0}
+8100;5;ArrivalGenerator;out_customer;8
+8100;5;ArrivalGenerator;;{customers_sent:9 sigma:900 active:1}
+9000;4;Queue;;{queue_len:10 dispatch:0 free_servers:0}
+9000;5;ArrivalGenerator;out_customer;9
+9000;5;ArrivalGenerator;;{customers_sent:10 sigma:900 active:1}
+9900;4;Queue;;{queue_len:11 dispatch:0 free_servers:0}
+9900;5;ArrivalGenerator;out_customer;10
+9900;5;ArrivalGenerator;;{customers_sent:11 sigma:900 active:1}
+10800;4;Queue;;{queue_len:12 dispatch:0 free_servers:0}
+10800;5;ArrivalGenerator;out_customer;11
+10800;5;ArrivalGenerator;;{customers_sent:12 sigma:900 active:1}
+11700;4;Queue;;{queue_len:13 dispatch:0 free_servers:0}
+11700;5;ArrivalGenerator;out_customer;12
+11700;5;ArrivalGenerator;;{customers_sent:13 sigma:900 active:1}
+12600;4;Queue;;{queue_len:14 dispatch:0 free_servers:0}
+12600;5;ArrivalGenerator;out_customer;13
+12600;5;ArrivalGenerator;;{customers_sent:14 sigma:900 active:1}
+13500;4;Queue;;{queue_len:15 dispatch:0 free_servers:0}
+13500;5;ArrivalGenerator;out_customer;14
+13500;5;ArrivalGenerator;;{customers_sent:15 sigma:900 active:1}
+14400;4;Queue;;{queue_len:16 dispatch:0 free_servers:0}
+14400;5;ArrivalGenerator;out_customer;15
+14400;5;ArrivalGenerator;;{customers_sent:16 sigma:900 active:1}
+15300;4;Queue;;{queue_len:17 dispatch:0 free_servers:0}
+15300;5;ArrivalGenerator;out_customer;16
+15300;5;ArrivalGenerator;;{customers_sent:17 sigma:900 active:1}
+16200;4;Queue;;{queue_len:18 dispatch:0 free_servers:0}
+16200;5;ArrivalGenerator;out_customer;17
+16200;5;ArrivalGenerator;;{customers_sent:18 sigma:900 active:1}
+17100;4;Queue;;{queue_len:19 dispatch:0 free_servers:0}
+17100;5;ArrivalGenerator;out_customer;18
+17100;5;ArrivalGenerator;;{customers_sent:19 sigma:900 active:1}
+18000;4;Queue;;{queue_len:20 dispatch:0 free_servers:0}
+18000;5;ArrivalGenerator;out_customer;19
+18000;5;ArrivalGenerator;;{customers_sent:20 sigma:900 active:1}
+18900;4;Queue;;{queue_len:21 dispatch:0 free_servers:0}
+18900;5;ArrivalGenerator;out_customer;20
+18900;5;ArrivalGenerator;;{customers_sent:21 sigma:900 active:1}
+19800;4;Queue;;{queue_len:22 dispatch:0 free_servers:0}
+19800;5;ArrivalGenerator;out_customer;21
+19800;5;ArrivalGenerator;;{customers_sent:22 sigma:900 active:1}
+20700;4;Queue;;{queue_len:23 dispatch:0 free_servers:0}
+20700;5;ArrivalGenerator;out_customer;22
+20700;5;ArrivalGenerator;;{customers_sent:23 sigma:900 active:1}
+21600;4;Queue;;{queue_len:24 dispatch:0 free_servers:0}
+21600;5;ArrivalGenerator;out_customer;23
+21600;5;ArrivalGenerator;;{customers_sent:24 sigma:900 active:1}
+22500;4;Queue;;{queue_len:25 dispatch:0 free_servers:0}
+22500;5;ArrivalGenerator;out_customer;24
+22500;5;ArrivalGenerator;;{customers_sent:25 sigma:inf active:0}
+22500;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}
+22500;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}
+22500;4;Queue;;{queue_len:25 dispatch:0 free_servers:0}
+22500;5;ArrivalGenerator;;{customers_sent:25 sigma:inf active:0}

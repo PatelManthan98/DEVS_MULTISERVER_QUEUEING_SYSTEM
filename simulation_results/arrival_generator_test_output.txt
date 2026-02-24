@@ -1,0 +1,45 @@
+=======================================================
+ UNIT TEST: CustomerArrivalGenerator
+-------------------------------------------------------
+ CONFIG:
+   IAT          = 100 s
+   MAX_CUSTOMERS= 10
+   Sim duration = 1100 s
+-------------------------------------------------------
+ Expected: 10 out_customer messages
+   t=100 → customer ID=0
+   t=200 → customer ID=1
+   t=300 → customer ID=2
+   t=400 → customer ID=3
+   t=500 → customer ID=4
+   t=600 → customer ID=5
+   t=700 → customer ID=6
+   t=800 → customer ID=7
+   t=900 → customer ID=8
+   t=1000 → customer ID=9
+   Final state: customers_sent=10 active=0 sigma=inf
+=======================================================
+
+time;model_id;model_name;port_name;data
+[33m0;1;CustomerArrivalGenerator;;{customers_sent:0 sigma:100 active:1}[0m
+[32m100;1;CustomerArrivalGenerator;out_customer;0[0m
+[33m100;1;CustomerArrivalGenerator;;{customers_sent:1 sigma:100 active:1}[0m
+[32m200;1;CustomerArrivalGenerator;out_customer;1[0m
+[33m200;1;CustomerArrivalGenerator;;{customers_sent:2 sigma:100 active:1}[0m
+[32m300;1;CustomerArrivalGenerator;out_customer;2[0m
+[33m300;1;CustomerArrivalGenerator;;{customers_sent:3 sigma:100 active:1}[0m
+[32m400;1;CustomerArrivalGenerator;out_customer;3[0m
+[33m400;1;CustomerArrivalGenerator;;{customers_sent:4 sigma:100 active:1}[0m
+[32m500;1;CustomerArrivalGenerator;out_customer;4[0m
+[33m500;1;CustomerArrivalGenerator;;{customers_sent:5 sigma:100 active:1}[0m
+[32m600;1;CustomerArrivalGenerator;out_customer;5[0m
+[33m600;1;CustomerArrivalGenerator;;{customers_sent:6 sigma:100 active:1}[0m
+[32m700;1;CustomerArrivalGenerator;out_customer;6[0m
+[33m700;1;CustomerArrivalGenerator;;{customers_sent:7 sigma:100 active:1}[0m
+[32m800;1;CustomerArrivalGenerator;out_customer;7[0m
+[33m800;1;CustomerArrivalGenerator;;{customers_sent:8 sigma:100 active:1}[0m
+[32m900;1;CustomerArrivalGenerator;out_customer;8[0m
+[33m900;1;CustomerArrivalGenerator;;{customers_sent:9 sigma:100 active:1}[0m
+[32m1000;1;CustomerArrivalGenerator;out_customer;9[0m
+[33m1000;1;CustomerArrivalGenerator;;{customers_sent:10 sigma:inf active:0}[0m
+[33m1000;1;CustomerArrivalGenerator;;{customers_sent:10 sigma:inf active:0}[0m

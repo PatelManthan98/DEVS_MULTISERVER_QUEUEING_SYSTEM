@@ -1,0 +1,245 @@
+
+=======================================================
+ Multi-Server Queueing System — Experiment 1
+ Light Load    (IAT=900s, rho~0.27)
+ IAT=900s  ServiceTime=480s  MaxCustomers=25
+=======================================================
+
+time;model_id;model_name;port_name;data
+[33m0;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m0;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m0;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m0;5;CustomerArrivalGenerator;;{customers_sent:0 sigma:900 active:1}[0m
+[33m900;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m900;5;CustomerArrivalGenerator;out_customer;0[0m
+[33m900;5;CustomerArrivalGenerator;;{customers_sent:1 sigma:900 active:1}[0m
+[33m900;3;Server1;;{server:1 phase:BUSY customer:0 sigma:480}[0m
+[32m900;4;FifoDispatchQueue;out_dispatch_s1;0[0m
+[33m900;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m1380;3;Server1;out_serverFree;1[0m
+[33m1380;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m1380;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m1800;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m1800;5;CustomerArrivalGenerator;out_customer;1[0m
+[33m1800;5;CustomerArrivalGenerator;;{customers_sent:2 sigma:900 active:1}[0m
+[33m1800;2;Server2;;{server:2 phase:BUSY customer:1 sigma:480}[0m
+[32m1800;4;FifoDispatchQueue;out_dispatch_s2;1[0m
+[33m1800;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m2280;2;Server2;out_serverFree;2[0m
+[33m2280;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m2280;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m2700;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m2700;5;CustomerArrivalGenerator;out_customer;2[0m
+[33m2700;5;CustomerArrivalGenerator;;{customers_sent:3 sigma:900 active:1}[0m
+[33m2700;3;Server1;;{server:1 phase:BUSY customer:2 sigma:480}[0m
+[32m2700;4;FifoDispatchQueue;out_dispatch_s1;2[0m
+[33m2700;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m3180;3;Server1;out_serverFree;1[0m
+[33m3180;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m3180;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m3600;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m3600;5;CustomerArrivalGenerator;out_customer;3[0m
+[33m3600;5;CustomerArrivalGenerator;;{customers_sent:4 sigma:900 active:1}[0m
+[33m3600;2;Server2;;{server:2 phase:BUSY customer:3 sigma:480}[0m
+[32m3600;4;FifoDispatchQueue;out_dispatch_s2;3[0m
+[33m3600;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m4080;2;Server2;out_serverFree;2[0m
+[33m4080;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m4080;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m4500;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m4500;5;CustomerArrivalGenerator;out_customer;4[0m
+[33m4500;5;CustomerArrivalGenerator;;{customers_sent:5 sigma:900 active:1}[0m
+[33m4500;3;Server1;;{server:1 phase:BUSY customer:4 sigma:480}[0m
+[32m4500;4;FifoDispatchQueue;out_dispatch_s1;4[0m
+[33m4500;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m4980;3;Server1;out_serverFree;1[0m
+[33m4980;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m4980;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m5400;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m5400;5;CustomerArrivalGenerator;out_customer;5[0m
+[33m5400;5;CustomerArrivalGenerator;;{customers_sent:6 sigma:900 active:1}[0m
+[33m5400;2;Server2;;{server:2 phase:BUSY customer:5 sigma:480}[0m
+[32m5400;4;FifoDispatchQueue;out_dispatch_s2;5[0m
+[33m5400;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m5880;2;Server2;out_serverFree;2[0m
+[33m5880;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m5880;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m6300;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m6300;5;CustomerArrivalGenerator;out_customer;6[0m
+[33m6300;5;CustomerArrivalGenerator;;{customers_sent:7 sigma:900 active:1}[0m
+[33m6300;3;Server1;;{server:1 phase:BUSY customer:6 sigma:480}[0m
+[32m6300;4;FifoDispatchQueue;out_dispatch_s1;6[0m
+[33m6300;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m6780;3;Server1;out_serverFree;1[0m
+[33m6780;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m6780;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m7200;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m7200;5;CustomerArrivalGenerator;out_customer;7[0m
+[33m7200;5;CustomerArrivalGenerator;;{customers_sent:8 sigma:900 active:1}[0m
+[33m7200;2;Server2;;{server:2 phase:BUSY customer:7 sigma:480}[0m
+[32m7200;4;FifoDispatchQueue;out_dispatch_s2;7[0m
+[33m7200;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m7680;2;Server2;out_serverFree;2[0m
+[33m7680;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m7680;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m8100;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m8100;5;CustomerArrivalGenerator;out_customer;8[0m
+[33m8100;5;CustomerArrivalGenerator;;{customers_sent:9 sigma:900 active:1}[0m
+[33m8100;3;Server1;;{server:1 phase:BUSY customer:8 sigma:480}[0m
+[32m8100;4;FifoDispatchQueue;out_dispatch_s1;8[0m
+[33m8100;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m8580;3;Server1;out_serverFree;1[0m
+[33m8580;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m8580;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m9000;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m9000;5;CustomerArrivalGenerator;out_customer;9[0m
+[33m9000;5;CustomerArrivalGenerator;;{customers_sent:10 sigma:900 active:1}[0m
+[33m9000;2;Server2;;{server:2 phase:BUSY customer:9 sigma:480}[0m
+[32m9000;4;FifoDispatchQueue;out_dispatch_s2;9[0m
+[33m9000;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m9480;2;Server2;out_serverFree;2[0m
+[33m9480;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m9480;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m9900;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m9900;5;CustomerArrivalGenerator;out_customer;10[0m
+[33m9900;5;CustomerArrivalGenerator;;{customers_sent:11 sigma:900 active:1}[0m
+[33m9900;3;Server1;;{server:1 phase:BUSY customer:10 sigma:480}[0m
+[32m9900;4;FifoDispatchQueue;out_dispatch_s1;10[0m
+[33m9900;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m10380;3;Server1;out_serverFree;1[0m
+[33m10380;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m10380;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m10800;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m10800;5;CustomerArrivalGenerator;out_customer;11[0m
+[33m10800;5;CustomerArrivalGenerator;;{customers_sent:12 sigma:900 active:1}[0m
+[33m10800;2;Server2;;{server:2 phase:BUSY customer:11 sigma:480}[0m
+[32m10800;4;FifoDispatchQueue;out_dispatch_s2;11[0m
+[33m10800;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m11280;2;Server2;out_serverFree;2[0m
+[33m11280;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m11280;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m11700;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m11700;5;CustomerArrivalGenerator;out_customer;12[0m
+[33m11700;5;CustomerArrivalGenerator;;{customers_sent:13 sigma:900 active:1}[0m
+[33m11700;3;Server1;;{server:1 phase:BUSY customer:12 sigma:480}[0m
+[32m11700;4;FifoDispatchQueue;out_dispatch_s1;12[0m
+[33m11700;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m12180;3;Server1;out_serverFree;1[0m
+[33m12180;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m12180;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m12600;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m12600;5;CustomerArrivalGenerator;out_customer;13[0m
+[33m12600;5;CustomerArrivalGenerator;;{customers_sent:14 sigma:900 active:1}[0m
+[33m12600;2;Server2;;{server:2 phase:BUSY customer:13 sigma:480}[0m
+[32m12600;4;FifoDispatchQueue;out_dispatch_s2;13[0m
+[33m12600;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m13080;2;Server2;out_serverFree;2[0m
+[33m13080;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m13080;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m13500;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m13500;5;CustomerArrivalGenerator;out_customer;14[0m
+[33m13500;5;CustomerArrivalGenerator;;{customers_sent:15 sigma:900 active:1}[0m
+[33m13500;3;Server1;;{server:1 phase:BUSY customer:14 sigma:480}[0m
+[32m13500;4;FifoDispatchQueue;out_dispatch_s1;14[0m
+[33m13500;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m13980;3;Server1;out_serverFree;1[0m
+[33m13980;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m13980;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m14400;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m14400;5;CustomerArrivalGenerator;out_customer;15[0m
+[33m14400;5;CustomerArrivalGenerator;;{customers_sent:16 sigma:900 active:1}[0m
+[33m14400;2;Server2;;{server:2 phase:BUSY customer:15 sigma:480}[0m
+[32m14400;4;FifoDispatchQueue;out_dispatch_s2;15[0m
+[33m14400;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m14880;2;Server2;out_serverFree;2[0m
+[33m14880;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m14880;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m15300;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m15300;5;CustomerArrivalGenerator;out_customer;16[0m
+[33m15300;5;CustomerArrivalGenerator;;{customers_sent:17 sigma:900 active:1}[0m
+[33m15300;3;Server1;;{server:1 phase:BUSY customer:16 sigma:480}[0m
+[32m15300;4;FifoDispatchQueue;out_dispatch_s1;16[0m
+[33m15300;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m15780;3;Server1;out_serverFree;1[0m
+[33m15780;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m15780;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m16200;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m16200;5;CustomerArrivalGenerator;out_customer;17[0m
+[33m16200;5;CustomerArrivalGenerator;;{customers_sent:18 sigma:900 active:1}[0m
+[33m16200;2;Server2;;{server:2 phase:BUSY customer:17 sigma:480}[0m
+[32m16200;4;FifoDispatchQueue;out_dispatch_s2;17[0m
+[33m16200;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m16680;2;Server2;out_serverFree;2[0m
+[33m16680;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m16680;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m17100;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m17100;5;CustomerArrivalGenerator;out_customer;18[0m
+[33m17100;5;CustomerArrivalGenerator;;{customers_sent:19 sigma:900 active:1}[0m
+[33m17100;3;Server1;;{server:1 phase:BUSY customer:18 sigma:480}[0m
+[32m17100;4;FifoDispatchQueue;out_dispatch_s1;18[0m
+[33m17100;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m17580;3;Server1;out_serverFree;1[0m
+[33m17580;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m17580;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m18000;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m18000;5;CustomerArrivalGenerator;out_customer;19[0m
+[33m18000;5;CustomerArrivalGenerator;;{customers_sent:20 sigma:900 active:1}[0m
+[33m18000;2;Server2;;{server:2 phase:BUSY customer:19 sigma:480}[0m
+[32m18000;4;FifoDispatchQueue;out_dispatch_s2;19[0m
+[33m18000;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m18480;2;Server2;out_serverFree;2[0m
+[33m18480;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m18480;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m18900;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m18900;5;CustomerArrivalGenerator;out_customer;20[0m
+[33m18900;5;CustomerArrivalGenerator;;{customers_sent:21 sigma:900 active:1}[0m
+[33m18900;3;Server1;;{server:1 phase:BUSY customer:20 sigma:480}[0m
+[32m18900;4;FifoDispatchQueue;out_dispatch_s1;20[0m
+[33m18900;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m19380;3;Server1;out_serverFree;1[0m
+[33m19380;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m19380;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m19800;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m19800;5;CustomerArrivalGenerator;out_customer;21[0m
+[33m19800;5;CustomerArrivalGenerator;;{customers_sent:22 sigma:900 active:1}[0m
+[33m19800;2;Server2;;{server:2 phase:BUSY customer:21 sigma:480}[0m
+[32m19800;4;FifoDispatchQueue;out_dispatch_s2;21[0m
+[33m19800;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m20280;2;Server2;out_serverFree;2[0m
+[33m20280;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m20280;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m20700;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m20700;5;CustomerArrivalGenerator;out_customer;22[0m
+[33m20700;5;CustomerArrivalGenerator;;{customers_sent:23 sigma:900 active:1}[0m
+[33m20700;3;Server1;;{server:1 phase:BUSY customer:22 sigma:480}[0m
+[32m20700;4;FifoDispatchQueue;out_dispatch_s1;22[0m
+[33m20700;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m21180;3;Server1;out_serverFree;1[0m
+[33m21180;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m21180;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m21600;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m21600;5;CustomerArrivalGenerator;out_customer;23[0m
+[33m21600;5;CustomerArrivalGenerator;;{customers_sent:24 sigma:900 active:1}[0m
+[33m21600;2;Server2;;{server:2 phase:BUSY customer:23 sigma:480}[0m
+[32m21600;4;FifoDispatchQueue;out_dispatch_s2;23[0m
+[33m21600;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m22080;2;Server2;out_serverFree;2[0m
+[33m22080;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m22080;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m22500;4;FifoDispatchQueue;;{queue_len:0 dispatch:1 free_servers:2}[0m
+[32m22500;5;CustomerArrivalGenerator;out_customer;24[0m
+[33m22500;5;CustomerArrivalGenerator;;{customers_sent:25 sigma:inf active:0}[0m
+[33m22500;3;Server1;;{server:1 phase:BUSY customer:24 sigma:480}[0m
+[32m22500;4;FifoDispatchQueue;out_dispatch_s1;24[0m
+[33m22500;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:1}[0m
+[32m22980;3;Server1;out_serverFree;1[0m
+[33m22980;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m22980;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m22980;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m22980;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m22980;4;FifoDispatchQueue;;{queue_len:0 dispatch:0 free_servers:2}[0m
+[33m22980;5;CustomerArrivalGenerator;;{customers_sent:25 sigma:inf active:0}[0m
+
+=======================================================
+ Simulation Complete — Experiment 1
+=======================================================
