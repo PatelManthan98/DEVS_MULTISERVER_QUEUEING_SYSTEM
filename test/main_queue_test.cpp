@@ -65,7 +65,9 @@ public:
             : s.events[s.index].first - s.events[s.index-1].first;
     }
     void externalTransition(InjectorState& s, double e) const override { s.sigma -= e; }
+    
     void confluentTransition(InjectorState& s, double e) const override { internalTransition(s); }
+
     void output(const InjectorState& s) const override {
         if (s.index < (int)s.events.size())
             out->addMessage(s.events[s.index].second);
