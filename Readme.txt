@@ -15,7 +15,7 @@ atomics [This folder contains atomic models implemented in Cadmium v2]
 
 Coupled [This folder contains Coupled models]
 	parallel_server_pool.hpp                Level-2 coupled model containing Server1 and Server2
-        multiserver_queueing_system.hpp         Level-1 top coupled model
+    multiserver_queueing_system.hpp         Level-1 top coupled model
 
 input_data [This folder contains experiment parameter documentation]
 	experiment_parameters.txt  IAT, serviceTime, maxCustomers for each of the 3 experiments
