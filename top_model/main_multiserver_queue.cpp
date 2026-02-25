@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     };
 
     ExperimentConfig experiments[] = {
-        {500.0, 480.0, 25, "Light Load    (IAT=900s)"},
+        {900.0, 480.0, 25, "Light Load    (IAT=900s)"},
         {300.0, 480.0, 25, "Moderate Load (IAT=300s)"},
         {180.0, 480.0, 25, "Heavy Load    (IAT=180s)"},
     };
