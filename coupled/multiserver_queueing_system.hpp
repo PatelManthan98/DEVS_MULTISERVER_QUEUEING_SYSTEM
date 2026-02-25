@@ -35,5 +35,5 @@ public:
     }
 };
 
-} // namespace cadmium::example::queue
+}
 #endif
