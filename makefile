@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++17 -Wall -I$(CADMIUM) -I.
 BIN = bin
 SIM = simulation_results
 
-.PHONY: all clean arrival_generator_test queue_test server_test experiment1 experiment2 experiment3 strip_colors
+.PHONY: all clean arrival_generator_test queue_test server_test experiment1 experiment2 experiment3 
 
 all: $(BIN)/ARRIVAL_GENERATOR_TEST $(BIN)/QUEUE_TEST $(BIN)/SERVER_TEST $(BIN)/MULTISERVER_QUEUE
 
@@ -44,10 +44,6 @@ experiment2: $(BIN)/MULTISERVER_QUEUE
 
 experiment3: $(BIN)/MULTISERVER_QUEUE
 	cd bin && ./MULTISERVER_QUEUE 3 2>&1 | tee ../$(SIM)/experiment3_heavy_load_output_messages.txt
-
-strip_colors:
-	python3 -c "import os,re; [open(f,'w').write(re.sub(r'\x1b\[[0-9;]*m','',open(f).read())) for f in [os.path.join('$(SIM)',x) for x in os.listdir('$(SIM)') if x.endswith('.txt')]]"
-	@echo "Color codes removed from all files in $(SIM)/"
 
 clean:
 	rm -rf $(BIN)

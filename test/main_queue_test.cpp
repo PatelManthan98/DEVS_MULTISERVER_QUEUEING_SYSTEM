@@ -20,10 +20,8 @@ using namespace cadmium;
 // ═══════════════════════════════════════════════
 const double inter_arrival_time = 100.0;  // seconds between customer arrivals
 const int    max_customers      = 5;      // number of customers to generate
-// ═══════════════════════════════════════════════
 
-// ── Read server-free signals from file ────────────────────────────────────────
-// Format: one event per line → "time  server_id"
+
 std::vector<std::pair<double,int>> read_server_free_file(const std::string& filepath) {
     std::vector<std::pair<double,int>> events;
     std::ifstream file(filepath);
@@ -58,6 +56,7 @@ public:
     ServerFreeInjector(const std::string& id, std::vector<std::pair<double,int>> events)
         : Atomic<InjectorState>(id, InjectorState(events))
     { out = addOutPort<int>("out"); }
+
     void internalTransition(InjectorState& s) const override {
         s.index++;
         s.sigma = (s.index >= (int)s.events.size())
@@ -108,9 +107,9 @@ int main() {
     std::cout << " TEST: FifoDispatchQueue\n";
     std::cout << "-------------------------------------------------------\n";
     std::cout << " Customer source (internal ArrivalGenerator):\n";
-    std::cout << "   inter_arrival_time = " << inter_arrival_time << " s\n";
+    std::cout << "   inter_arrival_time = " << inter_arrival_time << "\n";
     std::cout << "   max_customers      = " << max_customers << "\n";
-    std::cout << " Server-free signals (" << server_free_file << "):\n";
+    std::cout << " Server-free signals:\n";
     for (auto& [t, sid] : server_free_events)
         std::cout << "   t=" << t << "  server_id=" << sid << "\n";
     std::cout << "-------------------------------------------------------\n\n";
