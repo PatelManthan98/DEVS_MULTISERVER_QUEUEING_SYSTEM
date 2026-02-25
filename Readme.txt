@@ -13,8 +13,9 @@ atomics [This folder contains atomic models implemented in Cadmium v2]
 	queue.hpp               FifoDispatchQueue — FIFO buffer, dispatches customers to free servers
 	server.hpp              Server — IDLE/BUSY service cycle, signals free when done
 
-data_structures [This folder contains data type definitions used across models]
-	customer_message.hpp    Type aliases for CustomerID and ServerID (int-based messages)
+Coupled [This folder contains Coupled models]
+	parallel_server_pool.hpp                Container holding both servers in parallel
+        multiserver_queueing_system.hpp         Top model connecting all components
 
 input_data [This folder contains experiment parameter documentation]
 	experiment_parameters.txt  IAT, serviceTime, maxCustomers for each of the 3 experiments
@@ -28,9 +29,6 @@ top_model [This folder contains the top-level model and coupled submodels]
 	main_multiserver_queue.cpp       Simulation runner — selects experiment 1, 2, or 3
 	multiserver_queueing_system.hpp  Level-1 top coupled model
 	parallel_server_pool.hpp         Level-2 coupled model containing Server1 and Server2
-
-vendor [External dependency instructions]
-	README_dependencies.txt  Instructions to clone Cadmium v2
 
 bin [Created automatically on first compile — contains executables]
 simulation_results [Created automatically on first run — contains output logs]

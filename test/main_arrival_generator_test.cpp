@@ -13,7 +13,7 @@ using namespace cadmium;
 // ═══════════════════════════════════════════════
 //  CONFIG — change these to test different inputs
 // ═══════════════════════════════════════════════
-const double inter_arrival_time = 150.0;  // seconds between customers
+const double inter_arrival_time = 100.0;  // seconds between customers
 const int    max_customers      = 5;      // total customers to generate
 // ═══════════════════════════════════════════════
 

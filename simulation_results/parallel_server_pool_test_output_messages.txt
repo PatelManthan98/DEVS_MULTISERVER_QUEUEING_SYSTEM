@@ -1,0 +1,28 @@
+=======================================================
+ TEST: ParallelServerPool
+-------------------------------------------------------
+ service_time = 150 s
+ Server1 dispatch file : ../input_data/pool_server1_dispatch_test.txt
+   t=30 customer_id=5  (Server1 done at t=180)
+ Server2 dispatch file : ../input_data/pool_server2_dispatch_test.txt
+   t=60 customer_id=8  (Server2 done at t=210)
+-------------------------------------------------------
+time;model_id;model_name;port_name;data
+[33m0;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m0;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m0;4;DispatchToServer2;;{injector index:0 sigma:60}[0m
+[33m0;5;DispatchToServer1;;{injector index:0 sigma:30}[0m
+[33m30;3;Server1;;{server:1 phase:BUSY customer:5 sigma:150}[0m
+[32m30;5;DispatchToServer1;out;5[0m
+[33m30;5;DispatchToServer1;;{injector index:1 sigma:inf}[0m
+[33m60;2;Server2;;{server:2 phase:BUSY customer:8 sigma:150}[0m
+[32m60;4;DispatchToServer2;out;8[0m
+[33m60;4;DispatchToServer2;;{injector index:1 sigma:inf}[0m
+[32m180;3;Server1;out_serverFree;1[0m
+[33m180;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[32m210;2;Server2;out_serverFree;2[0m
+[33m210;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m210;2;Server2;;{server:2 phase:IDLE customer:-1 sigma:inf}[0m
+[33m210;3;Server1;;{server:1 phase:IDLE customer:-1 sigma:inf}[0m
+[33m210;4;DispatchToServer2;;{injector index:1 sigma:inf}[0m
+[33m210;5;DispatchToServer1;;{injector index:1 sigma:inf}[0m

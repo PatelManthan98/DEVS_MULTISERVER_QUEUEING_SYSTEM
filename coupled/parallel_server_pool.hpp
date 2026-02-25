@@ -1,16 +1,5 @@
 #ifndef PARALLEL_SERVER_POOL_HPP
 #define PARALLEL_SERVER_POOL_HPP
-//
-// Level-2 Coupled Model: Parallel Server Pool
-//
-// Contains Server1 and Server2 running independently in parallel.
-// Uses dedicated input ports per server so messages are never shared.
-//
-// Ports:
-//   in_dispatch_server1  → routes exclusively to Server1
-//   in_dispatch_server2  → routes exclusively to Server2
-//   out_server_free      → forwards completion signals from either server
-// =============================================================================
 
 #include <cadmium/modeling/devs/coupled.hpp>
 #include "../atomics/Server.hpp"

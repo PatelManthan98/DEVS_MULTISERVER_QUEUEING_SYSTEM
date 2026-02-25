@@ -39,6 +39,15 @@ std::vector<std::pair<double,int>> read_server_free_file(const std::string& file
     return events;
 }
 
+// Auto-detect number of servers from the max server ID in events
+int detectNumServers(const std::vector<std::pair<double,int>>& events) {
+    int max_server_id = 0;
+    for (const auto& [t, sid] : events) {
+        if (sid > max_server_id) max_server_id = sid;
+    }
+    return (max_server_id > 0) ? max_server_id : 2; // default to 2 if no events
+}
+
 // ── Server-free signal injector ───────────────────────────────────────────────
 struct InjectorState {
     std::vector<std::pair<double,int>> events;
@@ -77,7 +86,7 @@ public:
 // ── Top model: ArrivalGenerator + ServerFreeInjector → Queue ─────────────────
 class QueueTestTop : public Coupled {
 public:
-    QueueTestTop(std::vector<std::pair<double,int>> server_free_events)
+    QueueTestTop(std::vector<std::pair<double,int>> server_free_events, int num_servers)
         : Coupled("QueueTest")
     {
         // ArrivalGenerator produces customers internally
@@ -89,7 +98,8 @@ public:
         auto server_src = addComponent<ServerFreeInjector>(
                               "ServerFreeInput", server_free_events);
 
-        auto queue      = addComponent<Queue>("FifoDispatchQueue");
+        // Queue knows how many servers it has
+        auto queue      = addComponent<Queue>("FifoDispatchQueue", num_servers);
 
         addCoupling(generator->out_customer, queue->in_customer);
         addCoupling(server_src->out,         queue->in_serverFree);
@@ -102,6 +112,7 @@ int main() {
     const std::string output_state     = "../simulation_results/queue_test_output_state.txt";
 
     auto server_free_events = read_server_free_file(server_free_file);
+    int num_servers = detectNumServers(server_free_events);
 
     std::cout << "=======================================================\n";
     std::cout << " TEST: FifoDispatchQueue\n";
@@ -109,6 +120,7 @@ int main() {
     std::cout << " Customer source (internal ArrivalGenerator):\n";
     std::cout << "   inter_arrival_time = " << inter_arrival_time << "\n";
     std::cout << "   max_customers      = " << max_customers << "\n";
+    std::cout << "   num_servers        = " << num_servers << " (detected from input file)\n";
     std::cout << " Server-free signals:\n";
     for (auto& [t, sid] : server_free_events)
         std::cout << "   t=" << t << "  server_id=" << sid << "\n";
@@ -116,7 +128,7 @@ int main() {
 
     double sim_end = inter_arrival_time * max_customers + 500.0;
 
-    auto model = std::make_shared<QueueTestTop>(server_free_events);
+    auto model = std::make_shared<QueueTestTop>(server_free_events, num_servers);
     auto rc    = RootCoordinator(model);
     rc.setLogger<STDOUTLogger>(";");
     rc.start();

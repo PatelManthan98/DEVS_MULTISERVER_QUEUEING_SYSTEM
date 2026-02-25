@@ -14,12 +14,15 @@ struct QueueState {
     bool             dispatchPending;
     int              nextCustomer;
     std::vector<int> freeServerIds; // track WHICH servers are free, not just count
+    int              numServers;    // total number of servers (for validation)
 
-    QueueState()
-        : dispatchPending(false), nextCustomer(-1)
+    QueueState(int num_servers = 2)
+        : dispatchPending(false), nextCustomer(-1), numServers(num_servers)
     {
-        // Both servers start free
-        freeServerIds = {1, 2};
+        // Initialize all servers as free (server IDs 1 to numServers)
+        for (int i = 1; i <= num_servers; i++) {
+            freeServerIds.push_back(i);
+        }
     }
 };
 
@@ -39,8 +42,8 @@ public:
 
     int targetServer; // which server to dispatch to next
 
-    explicit Queue(const std::string& id)
-        : Atomic<QueueState>(id, QueueState()), targetServer(-1)
+    explicit Queue(const std::string& id, int num_servers = 2)
+        : Atomic<QueueState>(id, QueueState(num_servers)), targetServer(-1)
     {
         in_customer    = addInPort<int>("in_customer");
         in_serverFree  = addInPort<int>("in_serverFree");
@@ -56,7 +59,6 @@ public:
             s.nextCustomer    = s.waiting.front();
             s.waiting.pop_front();
             s.dispatchPending = true;
-
         }
     }
 
@@ -65,9 +67,22 @@ public:
         for (const auto& cid : in_customer->getBag())
             s.waiting.push_back(cid);
 
-        // Register newly freed servers by ID
-        for (const auto& sid : in_serverFree->getBag())
-            s.freeServerIds.push_back(sid);
+        // Register newly freed servers by ID (with validation)
+        for (const auto& sid : in_serverFree->getBag()) {
+            // Only add if it's a valid server ID and not already free
+            if (sid >= 1 && sid <= s.numServers) {
+                bool already_free = false;
+                for (int free_id : s.freeServerIds) {
+                    if (free_id == sid) {
+                        already_free = true;
+                        break;
+                    }
+                }
+                if (!already_free) {
+                    s.freeServerIds.push_back(sid);
+                }
+            }
+        }
 
         // Dispatch if possible
         if (!s.dispatchPending && !s.waiting.empty() && !s.freeServerIds.empty()) {
@@ -93,8 +108,9 @@ public:
             // Send to the correct server's dedicated port
             if (srv == 1)
                 out_dispatch_s1->addMessage(s.nextCustomer);
-            else
+            else if (srv == 2)
                 out_dispatch_s2->addMessage(s.nextCustomer);
+            // Add else-if for more servers if needed
         }
     }
 

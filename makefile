@@ -5,9 +5,9 @@ CXXFLAGS = -std=c++17 -Wall -I$(CADMIUM) -I.
 BIN = bin
 SIM = simulation_results
 
-.PHONY: all clean arrival_generator_test queue_test server_test experiment1 experiment2 experiment3 
+.PHONY: all clean arrival_generator_test queue_test server_test parallel_server_pool experiment1 experiment2 experiment3
 
-all: $(BIN)/ARRIVAL_GENERATOR_TEST $(BIN)/QUEUE_TEST $(BIN)/SERVER_TEST $(BIN)/MULTISERVER_QUEUE
+all: $(BIN)/ARRIVAL_GENERATOR_TEST $(BIN)/QUEUE_TEST $(BIN)/SERVER_TEST $(BIN)/PARALLEL_SERVER_POOL_TEST $(BIN)/MULTISERVER_QUEUE
 
 $(BIN):
 	mkdir -p $(BIN)
@@ -24,6 +24,9 @@ $(BIN)/QUEUE_TEST: test/main_queue_test.cpp | $(BIN) $(SIM)
 $(BIN)/SERVER_TEST: test/main_server_test.cpp | $(BIN) $(SIM)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
+$(BIN)/PARALLEL_SERVER_POOL_TEST: test/main_parallel_server_pool_test.cpp | $(BIN) $(SIM)
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
 $(BIN)/MULTISERVER_QUEUE: top_model/main_multiserver_queue.cpp | $(BIN) $(SIM)
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
@@ -35,6 +38,9 @@ queue_test: $(BIN)/QUEUE_TEST
 
 server_test: $(BIN)/SERVER_TEST
 	cd bin && ./SERVER_TEST 2>&1 | tee ../$(SIM)/server_test_output_messages.txt
+
+parallel_server_pool: $(BIN)/PARALLEL_SERVER_POOL_TEST
+	cd bin && ./PARALLEL_SERVER_POOL_TEST 2>&1 | tee ../$(SIM)/parallel_server_pool_test_output_messages.txt
 
 experiment1: $(BIN)/MULTISERVER_QUEUE
 	cd bin && ./MULTISERVER_QUEUE 1 2>&1 | tee ../$(SIM)/experiment1_light_load_output_messages.txt

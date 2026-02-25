@@ -4,8 +4,8 @@
 // Level-1 Top Coupled Model: Multi-Server Queueing System
 //
 // Connects all submodels:
-//   CustomerArrivalGenerator  → FifoDispatchQueue → ParallelServerPool
-//                                      ↑_______server_free feedback_______↓
+//   CustomerArrivalGenerator  → Queue → ParallelServerPool
+//                                 ↑_server_free feedback__↓
 // =============================================================================
 
 #include <cadmium/modeling/devs/coupled.hpp>

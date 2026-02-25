@@ -18,11 +18,10 @@ int main(int argc, char* argv[]) {
         std::string label;
     };
 
-    // rho = serviceTime / (N_servers * IAT), N=2, serviceTime=480
     ExperimentConfig experiments[] = {
-        {500.0, 480.0, 25, "Light Load    (IAT=900s, rho~0.27)"},
-        {300.0, 480.0, 25, "Moderate Load (IAT=300s, rho~0.80)"},
-        {180.0, 480.0, 25, "Heavy Load    (IAT=180s, rho~1.33)"},
+        {500.0, 480.0, 25, "Light Load    (IAT=900s)"},
+        {300.0, 480.0, 25, "Moderate Load (IAT=300s)"},
+        {180.0, 480.0, 25, "Heavy Load    (IAT=180s)"},
     };
 
     if (exp < 1 || exp > 3) {
