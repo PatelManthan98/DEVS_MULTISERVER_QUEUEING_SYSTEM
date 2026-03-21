@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/queueing_sim.dir/main.cpp.o -o queueing_sim 

@@ -1,91 +1,79 @@
-#ifndef QUEUE_HPP
-#define QUEUE_HPP
+#pragma once
 
 #include <cadmium/modeling/devs/atomic.hpp>
-#include <deque>
 #include <iostream>
 #include <limits>
+#include <deque>
 #include <vector>
 
-namespace cadmium::example::queue {
+namespace multiserver_queue {
 
 struct QueueState {
     std::deque<int>  waiting;
     bool             dispatchPending;
     int              nextCustomer;
-    std::vector<int> freeServerIds; // track WHICH servers are free, not just count
-    int              numServers;    // total number of servers (for validation)
+    int              targetServer;
+    std::vector<int> freeServerIds;
 
-    QueueState(int num_servers = 2)
-        : dispatchPending(false), nextCustomer(-1), numServers(num_servers)
+    QueueState()
+        : dispatchPending(false), nextCustomer(-1), targetServer(-1)
     {
-        // Initialize all servers as free (server IDs 1 to numServers)
-        for (int i = 1; i <= num_servers; i++) {
-            freeServerIds.push_back(i);
-        }
+        freeServerIds = {1, 2};
     }
 };
 
-std::ostream& operator<<(std::ostream& out, const QueueState& s) {
-    out << "{queue_len:"    << s.waiting.size()
-        << " dispatch:"     << s.dispatchPending
-        << " free_servers:" << s.freeServerIds.size() << "}";
+inline std::ostream& operator<<(std::ostream& out, const QueueState& s) {
+    out << "{queue_len: "    << s.waiting.size()
+        << ", dispatching: " << s.dispatchPending
+        << ", free_servers: "<< s.freeServerIds.size() << "}";
     return out;
 }
 
-class Queue : public Atomic<QueueState> {
+class Queue : public cadmium::Atomic<QueueState> {
 public:
-    Port<int> in_customer;
-    Port<int> in_serverFree;
-    Port<int> out_dispatch_s1; // dedicated port for Server1
-    Port<int> out_dispatch_s2; // dedicated port for Server2
+    cadmium::Port<int> in_customer;
+    cadmium::Port<int> in_server_free;
+    cadmium::Port<int> out_dispatch_s1;
+    cadmium::Port<int> out_dispatch_s2;
 
-    int targetServer; // which server to dispatch to next
-
-    explicit Queue(const std::string& id, int num_servers = 2)
-        : Atomic<QueueState>(id, QueueState(num_servers)), targetServer(-1)
+    explicit Queue(const std::string& id)
+        : cadmium::Atomic<QueueState>(id, QueueState())
     {
-        in_customer    = addInPort<int>("in_customer");
-        in_serverFree  = addInPort<int>("in_serverFree");
+        in_customer     = addInPort<int>("in_customer");
+        in_server_free  = addInPort<int>("in_server_free");
         out_dispatch_s1 = addOutPort<int>("out_dispatch_s1");
         out_dispatch_s2 = addOutPort<int>("out_dispatch_s2");
+    }
+
+    double timeAdvance(const QueueState& s) const override {
+        return s.dispatchPending ? 0.0 : std::numeric_limits<double>::infinity();
     }
 
     void internalTransition(QueueState& s) const override {
         s.dispatchPending = false;
         s.nextCustomer    = -1;
-        
+        s.targetServer    = -1;
         if (!s.waiting.empty() && !s.freeServerIds.empty()) {
+            s.targetServer    = s.freeServerIds.front();
+            s.freeServerIds.erase(s.freeServerIds.begin());
             s.nextCustomer    = s.waiting.front();
             s.waiting.pop_front();
             s.dispatchPending = true;
         }
     }
 
-    void externalTransition(QueueState& s, double /*e*/) const override {
-        // Enqueue new arrivals
-        for (const auto& cid : in_customer->getBag())
-            s.waiting.push_back(cid);
+    void externalTransition(QueueState& s, double e) const override {
+        if (!in_customer->empty())
+            for (const auto& cid : in_customer->getBag())
+                s.waiting.push_back(cid);
 
-        // Register newly freed servers by ID (with validation)
-        for (const auto& sid : in_serverFree->getBag()) {
-            // Only add if it's a valid server ID and not already free
-            if (sid >= 1 && sid <= s.numServers) {
-                bool already_free = false;
-                for (int free_id : s.freeServerIds) {
-                    if (free_id == sid) {
-                        already_free = true;
-                        break;
-                    }
-                }
-                if (!already_free) {
-                    s.freeServerIds.push_back(sid);
-                }
-            }
-        }
+        if (!in_server_free->empty())
+            for (const auto& sid : in_server_free->getBag())
+                s.freeServerIds.push_back(sid);
 
-        // Dispatch if possible
         if (!s.dispatchPending && !s.waiting.empty() && !s.freeServerIds.empty()) {
+            s.targetServer    = s.freeServerIds.front();
+            s.freeServerIds.erase(s.freeServerIds.begin());
             s.nextCustomer    = s.waiting.front();
             s.waiting.pop_front();
             s.dispatchPending = true;
@@ -98,27 +86,13 @@ public:
     }
 
     void output(const QueueState& s) const override {
-        if (s.dispatchPending && !s.freeServerIds.empty()) {
-            // Pick the first available server
-            int srv = s.freeServerIds.front();
-            // Remove it from free list 
-            const_cast<QueueState&>(s).freeServerIds.erase(
-                const_cast<QueueState&>(s).freeServerIds.begin());
-
-            // Send to the correct server's dedicated port
-            if (srv == 1)
+        if (s.dispatchPending) {
+            if (s.targetServer == 1)
                 out_dispatch_s1->addMessage(s.nextCustomer);
-            else if (srv == 2)
+            else
                 out_dispatch_s2->addMessage(s.nextCustomer);
-            // Add else-if for more servers if needed
         }
-    }
-
-    double timeAdvance(const QueueState& s) const override {
-        return s.dispatchPending ? 0.0
-                                 : std::numeric_limits<double>::infinity();
     }
 };
 
-}
-#endif
+} // namespace multiserver_queue
